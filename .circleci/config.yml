@@ -13,3 +13,8 @@ jobs:
              bucket: blue-green-bucket
              key_pattern: hello-color-app-{BRANCH}-{SHORT_COMMIT}
            deployment_group: hello-color-deployment
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - deployment          
