@@ -11,8 +11,7 @@ jobs:
                 command: go build ./app/hello-color.go
             - run:
                 name: Zip and Push Artifact to s3
-                command: aws --region us-east-1 deploy push --application-name hello-color
-              --s3-location s3://blue-green-bucket
+                command: aws --region us-east-1 deploy push --application-name hello-color --s3-location s3://blue-green-bucket
             - run:
                 name: Deploy the binary
                 command: aws --region us-east-1 deploy create-deployment \
