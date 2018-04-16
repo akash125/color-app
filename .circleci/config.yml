@@ -1,11 +1,11 @@
 version: 2
 jobs:
-    build:
+     build:
         working_directory: ~/color-app
         docker:
             - image: circleci/golang:1.9.2
         steps:
-          - checkout
+            - checkout
             - run:
                 name: Build color-app binary
                 command: go build app/hello-color.go
