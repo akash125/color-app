@@ -9,22 +9,18 @@ jobs:
             - run:
                 name: Build color-app binary
                 command: go build ./app/hello-color.go
-     deploy:
-       staging:
-         branch: master
-         codedeploy:
-             app:
-              application_root: /app
-              revision_location:
-                revision_type: S3
-                s3_location:
-                  bucket: blue-green-bucket
-                  key_pattern: hello-color-app-{BRANCH}-{SHORT_COMMIT}
-              region: us-east-1
-              deployment_group: hello-color-deployment       
+            - run:
+                name: Zip and Push Artifact to s3
+                command: aws --region us-east-1 deploy push --application-name hello-color
+              --s3-location s3://blue-green-bucket
+            - run:
+                name: Deploy the binary
+                command: aws --region us-east-1 deploy create-deployment \
+              --application-name "hello-color" \
+              --deployment-group-name "hello-color-deployment" \
+              --s3-location "bucket=blue-green-bucket,key=${hello-color-app-{BRANCH}-{SHORT_COMMIT}},bundleType=zip"     
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
-      - deploy
