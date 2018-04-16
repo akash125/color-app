@@ -9,7 +9,7 @@ jobs:
             - run:
                 name: Build color-app binary
                 command: go build ./app/hello-color.go
-     deployment:
+     deploy:
        staging:
          branch: master
          codedeploy:
