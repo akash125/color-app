@@ -7,7 +7,7 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello Blue!!")
+	fmt.Fprintf(w, "Hello Blue!")
 }
 
 func handleRequests() {
