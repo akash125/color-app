@@ -10,13 +10,9 @@ jobs:
                 name: Build color-app binary
                 command: go build ./app/hello-color.go
             - run:
-                name: switch user
-                command:
-                    sudo su -
-            - run:
                 name: Install aws cli
                 command:
-                    apt-get update && apt-get install -y install awscli
+                    sudo apt-get install -y awscli
             - run:
                 name: Zip and Push Artifact to s3
                 command: aws --region us-east-1 deploy push --application-name hello-color --s3-location s3://blue-green-bucket
