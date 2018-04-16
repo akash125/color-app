@@ -1,5 +1,14 @@
 version: 2
 jobs:
+    build:
+        working_directory: ~/color-app
+        docker:
+            - image: circleci/golang:1.9.2
+        steps:
+          - checkout
+            - run:
+                name: Build color-app binary
+                command: go build app/hello-color.go
     deployment:
       staging:
        branch: master
@@ -17,4 +26,5 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
+      - build
       - deployment          
