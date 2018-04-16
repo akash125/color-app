@@ -15,9 +15,9 @@ jobs:
             - run:
                 name: Deploy the binary
                 command: aws --region us-east-1 deploy create-deployment \
-              --application-name "hello-color" \
-              --deployment-group-name "hello-color-deployment" \
-              --s3-location "bucket=blue-green-bucket,key=${hello-color-app-{BRANCH}-{SHORT_COMMIT}},bundleType=zip"     
+                             --application-name "hello-color" \
+                             --deployment-group-name "hello-color-deployment" \
+                             --s3-location "bucket=blue-green-bucket,key=${hello-color-app-{BRANCH}-{SHORT_COMMIT}},bundleType=zip"     
 workflows:
   version: 2
   build-and-deploy:
