@@ -11,7 +11,7 @@ jobs:
                 command: go build ./app/hello-color.go
      deployment:
          staging:
-           branch: development
+           branch: master
              codedeploy:
                my-app:
                 application_root: /
