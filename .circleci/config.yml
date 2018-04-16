@@ -9,9 +9,22 @@ jobs:
             - run:
                 name: Build color-app binary
                 command: go build ./app/hello-color.go
-   
+deployment:
+  staging:
+    branch: development
+    codedeploy:
+      my-app:
+        application_root: /
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: blue-green-bucket
+            key_pattern: hello-color-app-{BRANCH}-{SHORT_COMMIT}
+        region: us-east-1
+        deployment_group: hello-color-deployment      
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
+      - deployment
