@@ -8,7 +8,7 @@ jobs:
             - checkout
             - run:
                 name: Build color-app binary
-                command: go build app/hello-color.go
+                command: go build ./app/hello-color.go
     deployment:
       staging:
        branch: master
