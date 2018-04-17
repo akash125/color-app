@@ -1,3 +1,3 @@
-#!/bin/bash -ex
+#!/bin/bash
 cd ..
-././hello-color &
+./hello-color &
