@@ -1,2 +1,2 @@
 #! /bin/sh
-./hello-color &
+/tmp/./hello-color &
