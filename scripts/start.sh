@@ -1,3 +1,3 @@
 #!/bin/bash -ex
  
- ./hello-color
+ ./hello-color &
