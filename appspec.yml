@@ -2,5 +2,5 @@ version: 0.0
 os: linux
 hooks:
   ApplicationStart:
-    - location: ./start.sh
+    - location: start.sh
       timeout: 300
