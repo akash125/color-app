@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 go run hello-color
