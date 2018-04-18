@@ -1,2 +1,5 @@
 #! /bin/sh
-/tmp/./hello-color
+echo "staring the hello-color app"
+./hello-color &
+echo "done"
+exit 1
