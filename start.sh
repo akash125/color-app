@@ -1,5 +1,5 @@
 #! /bin/sh
 echo "staring the hello-color app"
-/tmp/./hello-color & >> output.txt
+nohup /tmp/./hello-color 2>1 &
 echo "done"
 exit 0
